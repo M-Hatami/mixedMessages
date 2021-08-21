@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html dir="auto" lang="fa">
+
+<head>
+</head>
+
+<body>
+    <div id="matn"></div>
+    <script>
+        const Ayaat = require("./ayaat.json");
+        document.getElementById("matn").innerHTML = console.log(Ayaat[1].translate.split("").reverse().join(""));
+    </script>
+</body>
+
+</html>
