@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آیه انتخابی برای امروز</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap");
+      * {
+        font-family: "Vazirmatn", sans-serif;
+      }
+      body {
+        margin: 20px;
+      }
+      .endOfAyeh {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .endOfAyehSymbol::before {
+        position: absolute;
+        content: "\2007\06DD";
+        font-size: 2vw;
+      }
+
+      small:only-child {
+        padding-right: 1.1vw;
+        font-size: 1.2vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="matn"></div>
+
+    <footer style="position: absolute; bottom: 0; margin: 20px">
+      <p>
+        در این تارنما از یک پرونده JSON آیاتی از کلام الله قرآن کریم به همراه
+        ترجمه فارسی آنها توسط یک متن برنامه جاوا اسکریپت Javascript بصورت تصادفی
+        انتخاب و استخراج شده و سپس داخل این صفحه بارگذاری میشود.
+      </p>
+      <p>
+        همچنین در این صفحه از یونیکد پایان آیه end of ayah (U+06DD) ۝ نیز بعنوان
+        پشت‌زمینه استفاده شده و شماره آیه استخراج شده از پرونده جیسون داخل آن
+        بوسیله CSS قرار میگیرد. قابل ذکر است که با تغییر قلم و سامانه عامل
+        رایانه‌ها شکل این نشانه‌ها هم مانند دیگر نشانه‌ها تغییر میکند.
+      </p>
+      <p>
+        یک نسخه از همین برنامه برای Node js نیز در این بسته قرار داده شده است،
+        که جدای از پرونده HTML میتواند مورد استفاده قرار گیرد.
+      </p>
+    </footer>
+    <script>
+      const Ayaat = fetch("./ayaat.json").then((response) => response.json());
+      //      .then((data) => console.log(data));
+      async function ayeh() {
+        let verse = await Ayaat;
+        let rand = Math.floor(Math.random() * 3 + 1);
+        const elm = document.getElementById("matn");
+        let band =
+          "<h1>" +
+          verse[rand].Ayeh +
+          "</h1><h2>" +
+          verse[rand].translate +
+          '<span class="endOfAyeh endOfAyehSymbol"><small>' +
+          verse[rand].ayehNo +
+          "</small></span></h2>";
+        elm.innerHTML = band;
+
+        // console.log(verse[Math.floor(Math.random() * 2)].translate.split("").join(""));
+      }
+      ayeh();
+      //        Ayaat[1].translate.split("").reverse().join("");
+    </script>
+  </body>
+</html>
