@@ -1,8 +1,8 @@
 <div dir="auto" lang="fa">
 <h1>آیات انتخابی از پرونده جیسون</h1>
   <h2>خصوصیات و فناوریها</h2>
-  <img src="img\ui\SVG\badge-lang-fa.svg" alt="زبان: فارسی">
-  <img src="img\ui\SVG\badge-lang-ar.svg" alt="اللغة: العربية">
+  <img src="img\img/badge-lang-fa.svg" alt="زبان: فارسی">
+  <img src="img\img/badge-lang-ar.svg" alt="اللغة: العربية">
   </br>
   <code>جهت: راست به چپ (رب‌چ)</code>
   <br/>
